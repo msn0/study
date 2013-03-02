@@ -40,7 +40,11 @@
       exercises.fetch({
         success: function (exercises) {
           exercises.each(function (model) {
-            $(".exerciseList").append("<p>" + model.get('question') + "</p>")
+            console.log(model.get('answers'));
+            $(".exerciseList").append("<p>" + model.get('question') + "</p>");
+            model.get('answers').forEach(function (answer) {
+              $(".exerciseList").append("<li>" + answer + "</li>");
+            });
           });
           latexEngine.getExpresions();
         }
