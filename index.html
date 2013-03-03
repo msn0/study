@@ -4,51 +4,9 @@
     <meta charset="utf-8" />
     <link href="http://www.stackmob.com/platform/favicon.png" type="image/png" rel="icon" />
     <link rel="stylesheet" href="css/main.css" />
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script type="text/javascript" src="http://static.stackmob.com/js/stackmob-js-0.8.0-bundled-min.js"></script>
-    <script type="text/javascript">
-      StackMob.init({
-        appName: "study",
-        clientSubdomain: "michaj",
-        publicKey: "58c19fd7-964d-4bfa-95f5-9eb5a16cbae6",
-        apiVersion: 0
-      });
-    </script>
+    <script data-main="/js/app" src="/js/lib/require.js"></script>
   </head>
   <body>
     <div class="exerciseList"></div>
-    <script type="text/javascript">
-      var Exercise = StackMob.Model.extend({
-        schemaName: 'exercise'
-      });
-      var Exercises = StackMob.Collection.extend({
-        model: Exercise
-      });
-      var LatexEngine = {
-        url: "http://latex.codecogs.com/png.latex",
-        getExpresions: function () {
-          var that = this,
-              expression;
-          $(".tex").each(function () {
-            expression = $(this).html();
-            $(this).html("<img src='" + that.url + "?" + expression + "' />");
-          });
-        }
-      };
-      var latexEngine = Object.create(LatexEngine);
-      var exercises = new Exercises();
-      exercises.fetch({
-        success: function (exercises) {
-          exercises.each(function (model) {
-            console.log(model.get('answers'));
-            $(".exerciseList").append("<p>" + model.get('question') + "</p>");
-            model.get('answers').forEach(function (answer) {
-              $(".exerciseList").append("<li>" + answer + "</li>");
-            });
-          });
-          latexEngine.getExpresions();
-        }
-      });
-    </script>
   </body>
 </html>
