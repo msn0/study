@@ -1,8 +1,11 @@
 define([
-  'stackmob',
-  'schema/Exercise'
-], function (StackMob, Exercise) {
-	return new StackMob.Collection.extend({
+  'schema/Exercise',
+  'init/stackmob'
+], function (Exercise) {
+	
+	var Exercises = StackMob.Collection.extend({
 	  model: Exercise
-	})();
+	});
+
+	return new Exercises();
 });

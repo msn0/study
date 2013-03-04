@@ -1,23 +1,23 @@
 require.config({
+  baseUrl: './js/',
   paths: {
-    jquery: 'lib/jquery-1.9.1.min',
-    underscore: 'lib/underscore-min',
-    backbone: 'lib/backbone-min',
-    stackmob: 'lib/stackmob-js-0.8.0-bundled-min',
-    stackmobInit: 'init/stackmob'
+    'jquery': 'jquery',
+    'backbone': 'backbone',
+    'underscore': 'underscore',
+    'stackmob': 'lib/stackmob-js-0.8.0-bundled-min'
   },
   shim: {
-    'jquery': {
+    jquery: {
         exports: '$'
     },
-    'backbone': {
-        deps: ["underscore", "jquery"],
-        exports: "backbone"
-    },
-    'underscore': {
+    underscore: {
         exports: '_'
     },
-    'stackmob': {
+    backbone: {
+        deps: ["underscore", "jquery"],
+        exports: "Backbone"
+    },
+    stackmob: {
         deps: ["underscore", "jquery", "backbone"],
         exports: "StackMob"
     }
@@ -25,10 +25,8 @@ require.config({
 });
 
 require([
-  'underscore',
-  'stackmobInit',
-  'init/invitation'
-], function (_, stackmob, invitation) {
-  stackmob.run();
+  'init/invitation',
+  'init/stackmob'
+], function (invitation) {
   invitation.run();
 });
