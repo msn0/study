@@ -1,10 +1,7 @@
 define([
   'init/stackmob'
 ], function () {
-
-	var Exercise = StackMob.Model.extend({
+	return StackMob.Model.extend({
 	  schemaName: 'exercise'
 	});
-	
-	return Exercise;
 });

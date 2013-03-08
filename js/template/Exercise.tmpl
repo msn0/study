@@ -1,0 +1,10 @@
+<div class="exercise" data-id="{{= exercise_id}}">
+  <p class="question">{{html question }}</p>
+  <ul class="answers">
+    {{each(i) answers}}
+      <li class="answer">
+        <input type="radio" name="{{= exercise_id}}" />{{= answers[i]}}
+      </li>
+    {{/each}}
+  </ul>
+</div>

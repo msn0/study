@@ -8,25 +8,27 @@ require.config({
   },
   shim: {
     jquery: {
-        exports: '$'
+      exports: '$'
     },
     underscore: {
-        exports: '_'
+      exports: '_'
     },
     backbone: {
-        deps: ["underscore", "jquery"],
-        exports: "Backbone"
+      deps: ["underscore", "jquery"],
+      exports: "Backbone"
     },
     stackmob: {
-        deps: ["underscore", "jquery", "backbone"],
-        exports: "StackMob"
-    }
+      deps: ["underscore", "jquery", "backbone"],
+      exports: "StackMob"
+    },
+    'jquery.tmpl': ['jquery']
   }
 });
 
 require([
   'init/invitation',
-  'init/stackmob'
+  'init/stackmob',
+  'jquery.tmpl'
 ], function (invitation) {
   invitation.run();
 });
