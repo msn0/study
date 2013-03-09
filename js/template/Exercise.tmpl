@@ -4,7 +4,7 @@
     {{each(i) answers}}
       <li class="answer">
         <input type="radio" name="{{= exercise_id}}" data-index="{{= i}}"/>
-        {{= answers[i]}}
+        {{html answers[i]}}
       </li>
     {{/each}}
   </ul>
