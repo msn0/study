@@ -38,15 +38,15 @@ define([
 
     fetchInvitationDetails: function () {
       this.invitation.fetchExpanded(1, {
-        success: _.bind(function (invitation) {
-          this.feedExercises(invitation);
+        success: _.bind(function () {
+          this.feedExercises();
           this.renderViews();
         }, this)
       });
     },
     
-    feedExercises: function (invitation) {
-      invitation.get('exes').forEach(_.bind(function (exercise) {
+    feedExercises: function () {
+      this.invitation.get('exes').forEach(_.bind(function (exercise) {
         this.exercises.add(new Exercise(exercise));
       }, this));
     },
@@ -60,6 +60,7 @@ define([
         })).render();
       });
       this.renderLatex();
+      this.renderGivenAnswers();
       this.renderSubmitView();
     },
 
@@ -67,9 +68,18 @@ define([
       latexEngine.getExpresions();
     },
 
+    renderGivenAnswers: function () {
+      if(this.invitation.get("givenanswers")) {
+        this.invitation.get("givenanswers").forEach(_.bind(function (answerindex, index) {
+          $('.exercise').eq(index).find('input[data-index=' + answerindex + ']').attr('checked', 'checked');
+        }, this));
+      }
+    },
+
     renderSubmitView: function () {
       var submit = new Submit({
-        exercises: this.exercises
+        exercises: this.exercises,
+        invitation: this.invitation
       });
       var submitView = new SubmitView({
         model: submit,
