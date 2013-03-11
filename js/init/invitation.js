@@ -24,18 +24,14 @@ define([
 ) {
   return {
     
-    run: function () {
+    run: function (id) {
       this.exercises = new Exercises();
       this.invitation = new Invitation({
-        invitation_id: this.getInvitationId()
+        invitation_id: id
       });
       this.fetchInvitationDetails();
     },
     
-    getInvitationId: function () {
-      return location.hash.replace("#",'');
-    },
-
     fetchInvitationDetails: function () {
       this.invitation.fetchExpanded(1, {
         success: _.bind(function () {

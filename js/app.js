@@ -27,8 +27,7 @@ require.config({
 
 require([
   'init/invitation',
+  'routing',
   'init/stackmob',
   'jquery.tmpl'
-], function (invitation) {
-  invitation.run();
-});
+]);
