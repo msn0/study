@@ -1,3 +1,6 @@
+ul {
+  list-style: none;
+}
 .tex img {
   vertical-align: top;
   margin: 0px 5px;
