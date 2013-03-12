@@ -1,0 +1,11 @@
+<div class="exercise {{if isCorrect}}correct{{else}}incorrect{{/if}}">
+  <p class="question">{{html question }}</p>
+  <ul class="answers">
+    {{each(i) answers}}
+      <li class="answer {{if correctanswers.indexOf(i) !== -1 }}correct{{/if}}">
+        <input type="radio" name="{{= exercise_id}}" data-index="{{= i}}"/>
+        {{html answers[i]}}
+      </li>
+    {{/each}}
+  </ul>
+</div>
