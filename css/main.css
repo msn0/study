@@ -1,8 +1,4 @@
-.tex {
-  display: inline-block;
-  vertical-align: middle;
-}
 .tex img {
-  vertical-align: middle;
+  vertical-align: top;
   margin: 0px 5px;
 }
