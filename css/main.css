@@ -1,7 +1,23 @@
+body {
+  font-family: 'helvetica neue', helvetica, arial, sans-serif;
+  margin: 0;
+}
 ul {
   list-style: none;
 }
 .tex img {
   vertical-align: top;
   margin: 0px 5px;
+}
+.exercise {
+  padding: 5px;
+}
+.exercise.correct {
+  background: yellowgreen;
+}
+.exercise.incorrect {
+  background: coral;
+}
+.answer.correct {
+  font-weight: bold;
 }

@@ -4,7 +4,6 @@ define([
   'schema/Exercises',
   'schema/Exercise',
   'view/Exercise',
-  'text!template/Exercise.tmpl',
   'schema/Invitation',
   'model/submit',
   'view/submit',
@@ -16,7 +15,6 @@ define([
   Exercises,
   Exercise,
   ExerciseView, 
-  ExerciseTemplate,
   Invitation,
   Submit,
   SubmitView,
@@ -24,10 +22,12 @@ define([
 ) {
   return {
     
-    run: function (id) {
+    run: function (options) {
+      this.template = options.template;
+      this.id = options.id;
       this.exercises = new Exercises();
       this.invitation = new Invitation({
-        invitation_id: id
+        invitation_id: this.id
       });
       this.fetchInvitationDetails();
     },
@@ -48,13 +48,13 @@ define([
     },
 
     renderViews: function () {
-      this.exercises.each(function (exercise) {
+      this.exercises.each(_.bind(function (exercise) {
         (new ExerciseView({
           model: exercise,
           el: $(".exerciseList"),
-          template: ExerciseTemplate
+          template: this.template
         })).render();
-      });
+      }, this));
       this.renderLatex();
       this.renderGivenAnswers();
       this.renderSubmitView();
