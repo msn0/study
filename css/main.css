@@ -1,6 +1,7 @@
 body {
-  font-family: 'helvetica neue', helvetica, arial, sans-serif;
   margin: 0;
+  font-family: 'arimo',Helvetica,Arial,sans-serif;
+	background: url(/images/background.png);
 }
 ul {
   list-style: none;
@@ -20,4 +21,41 @@ ul {
 }
 .answer.correct {
   font-weight: bold;
+}
+.content {
+	position: relative;
+	background-color: white;
+	top: 38px;
+	z-index: 2;
+	width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	min-height: 480px;
+	border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-o-border-radius: 8px;
+	box-shadow: 1px 2px 5px black;
+	-moz-box-shadow: 1px 2px 5px#000;
+	-webkit-box-shadow: 1px 2px 5px black;
+	-o-box-shadow: 1px 2px 5px#000;
+	color: #333;
+	padding: 20px;
+	overflow: visible;
+}
+.header {
+	display: block;
+	height: 50px;
+	color: #EEE;
+	width: 640px;
+	margin: 0 auto;
+	padding: 0 8px 0 20px;	
+}
+.header h1 {
+	font-family: 'ff-enzo-web',Helvetica,Arial,sans-serif;
+	position: absolute;
+	font-weight: 400;
+	font-size: 23pt;
+	padding: 0;
+	margin: 32px 10px;
 }
