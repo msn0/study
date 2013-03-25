@@ -33,7 +33,7 @@ define([
       this.invitation = new Invitation(model);
       var view = new InvitationView({
         model: this.invitation,
-        el: $(".exerciseList"),
+        el: $(".content"),
         template: InvitationTemplate
       });
       view.render();

@@ -15,7 +15,7 @@
   top: 0.1em;
 }
 .icon:hover {
-  color: #ccc;
+  color: #82AEFA;
   text-shadow: 1px 1px 3px black;
   cursor: pointer;
 }
@@ -74,7 +74,7 @@ html[xmlns] .clearfix {
   height: 1%;
 }
 .tex img {
-  vertical-align: top;
+  vertical-align: middle;
   margin: 0px 5px;
 }
 .exercise {
