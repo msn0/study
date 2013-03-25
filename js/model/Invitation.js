@@ -7,7 +7,8 @@ define([
       exes: [],
       givenanswers: [],
       invitation_id: null,
-      lastmoddate: null
+      lastmoddate: null,
+      type: 'single'
     }
   });
 });

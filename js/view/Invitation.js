@@ -21,10 +21,17 @@ define([
     },
     checkAnswer: function (e) {
       var exerciseNumber = $(e.target).closest('.exercise').index();
-      var givenanswer = $(e.target).data('index');
       var givenanswers = this.model.get('givenanswers');
+      var givenanswer;
+      if ($(e.target).hasClass('single')) {
+        givenanswer = $(e.target).data('index');
+      } 
+      else if ($(e.target).hasClass('input')) {
+        givenanswer = $(e.target).val();
+      }
       givenanswers[exerciseNumber] = givenanswer + "";
       this.model.set('givenanswers', givenanswers);
+      console.log(givenanswers);
       this.enableSubmitButton();
     },
     enableSubmitButton: function () {

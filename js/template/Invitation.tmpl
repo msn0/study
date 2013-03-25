@@ -2,17 +2,29 @@
   {{each(i) exes}}
     <div class="exercise">
       <p class="question"><strong>{{= i+1}}.</strong> {{html exes[i].question }}</p>
-      <ul class="answers">
-        {{each(j) exes[i].answers}}
-          <li class="answer">
-            <input  type="radio" 
-                    name="{{= exes[i].exercise_id}}" 
-                    data-index="{{= j}}" 
-                    {{if givenanswers[i]==j}}checked{{/if}}/>
-            {{html exes[i].answers[j]}}
-          </li>
-        {{/each}}
-      </ul>
+      {{if !type || type === 'single'}}
+        <ul class="answers">
+          {{each(j) exes[i].answers}}
+            <li class="answer">
+              <input  type="radio" 
+                      name="{{= exes[i].exercise_id}}" 
+                      data-index="{{= j}}"
+                      class="single" 
+                      {{if givenanswers[i]==j}}checked{{/if}}/>
+              {{html exes[i].answers[j]}}
+            </li>
+          {{/each}}
+        </ul>
+      {{/if}}
+      {{if type === "input"}}
+        <p class="answer"> 
+          <input class="input" 
+                 type="text" 
+                 placeholder="Tutaj wpisz odpowiedź..."
+                 name="{{= exes[i].exercise_id}}"
+                 value="{{= givenanswers[i] }}" />
+        </p>
+      {{/if}}
       {{if exes.length - 1 > i}}<hr />{{/if}}
     </div>
   {{/each}}

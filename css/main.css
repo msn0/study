@@ -93,6 +93,16 @@ html[xmlns] .clearfix {
 .answer.correct {
   font-weight: bold;
 }
+.answer .input {
+  border: 1px #ccc solid;
+  font-size: 16px;
+  line-height: 22px;
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: 0px 0px 1px black;
+  background: #fafafa;
+  width: 580px;
+}
 .content {
   position: relative;
   background-color: white;
@@ -100,7 +110,7 @@ html[xmlns] .clearfix {
   width: 600px;
   margin-left: auto;
   margin-right: auto;
-  min-height: 480px;
+  min-height: 280px;
   border-radius: 8px;
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
