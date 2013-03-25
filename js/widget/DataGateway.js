@@ -17,9 +17,13 @@ define([
       });
     };
 
-    var saveInvitationIntoStackMob = function (invitation) {
+    var saveInvitationIntoStackMob = function (invitation, handler) {
       console.log('Saving invitation into StackMob', invitation);
-      invitation.save();
+      invitation.save({
+        success: function () {
+          handler();
+        }
+      });
     };
 
     return {
@@ -32,8 +36,8 @@ define([
         getInvitationFromStackMob(id, handler);
       },
 
-      setInvitation: function (invitation) {
-        saveInvitationIntoStackMob(invitation);
+      setInvitation: function (invitation, handler) {
+        saveInvitationIntoStackMob(invitation, handler);
       }
 
     };

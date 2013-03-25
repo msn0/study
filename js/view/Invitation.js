@@ -25,6 +25,13 @@ define([
       var givenanswers = this.model.get('givenanswers');
       givenanswers[exerciseNumber] = givenanswer + "";
       this.model.set('givenanswers', givenanswers);
+      this.enableSubmitButton();
+    },
+    enableSubmitButton: function () {
+      this.$el.find('.submitButton').removeClass('disabled');
+    },
+    disableSubmitButton: function () {
+      this.$el.find('.submitButton').addClass('disabled');
     },
     submit: function () {
       var invitation = new SchemaInvitation({
@@ -33,7 +40,7 @@ define([
       invitation.set({
         givenanswers: this.model.get('givenanswers')
       });
-      this.dataGateway.setInvitation(invitation);
+      this.dataGateway.setInvitation(invitation, _.bind(this.disableSubmitButton, this));
     },
     render: function () {
       var template = $.tmpl(this.template, this.model.toJSON());
