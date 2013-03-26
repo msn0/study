@@ -2,7 +2,7 @@
   {{each(i) exes}}
     <div class="exercise">
       <p class="question"><strong>{{= i+1}}.</strong> {{html exes[i].question }}</p>
-      {{if !type || type === 'single'}}
+      {{if type === "single"}}
         <ul class="answers">
           {{each(j) exes[i].answers}}
             <li class="answer">

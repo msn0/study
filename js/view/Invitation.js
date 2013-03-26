@@ -19,6 +19,13 @@ define([
       "click .submit": "submit",
       "change .answer input": "checkAnswer"
     },
+    removeUndefinedFromArray: function (a) {
+      var temp = []; 
+      for(var i=0; i<a.length; i++){
+       temp.push(a[i] ? a[i] : '');
+      }
+      return temp;
+    },
     checkAnswer: function (e) {
       var exerciseNumber = $(e.target).closest('.exercise').index();
       var givenanswers = this.model.get('givenanswers');
@@ -30,8 +37,8 @@ define([
         givenanswer = $(e.target).val();
       }
       givenanswers[exerciseNumber] = givenanswer + "";
+      givenanswers = this.removeUndefinedFromArray(givenanswers);
       this.model.set('givenanswers', givenanswers);
-      console.log(givenanswers);
       this.enableSubmitButton();
     },
     enableSubmitButton: function () {
