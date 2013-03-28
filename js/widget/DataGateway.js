@@ -7,7 +7,6 @@ define([
   return function () {
     
     var getInvitationFromStackMob = function (id, handler) {
-      console.log('Getting invitation from StackMob', id);
       new Invitation({
         invitation_id: id
       }).fetchExpanded(1, {
@@ -18,7 +17,6 @@ define([
     };
 
     var saveInvitationIntoStackMob = function (invitation, handler) {
-      console.log('Saving invitation into StackMob', invitation);
       invitation.save({
         success: function () {
           handler();

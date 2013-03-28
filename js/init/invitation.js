@@ -11,10 +11,10 @@ define([
   'init/stackmob'
 ], function (
   $, 
-  latexEngine, 
+  latexEngine,
   Exercises,
   Exercise,
-  ExerciseView, 
+  ExerciseView,
   InvitationView,
   Invitation,
   InvitationTemplate,

@@ -206,3 +206,14 @@ html[xmlns] .clearfix {
   font-size: 11px;
   text-align: center;
 }
+.waitWrapper {
+  margin: 0 auto;
+  text-align: center;
+  display: table;
+}
+.waitWrapper .wait {
+  height: 300px;
+  vertical-align: middle;
+  position: relative;
+  display: table-cell;
+}
